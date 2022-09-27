@@ -1,0 +1,124 @@
+<html>
+<head>
+<title>Cloud app</title>
+<style>
+
+html, body{
+background : #FFE3A9;
+height:100%;
+width:100%;
+display:flex;
+justify-content:center;
+align-content:center;
+}
+
+
+.center{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-content:center;
+text-align:center;
+}
+
+table {
+	border-collapse: collapse;
+}
+table, th, td{
+	border: 1px solid black;
+}
+th, td{
+	padding: 10px 20px;
+}
+
+
+h1{
+	color: #293462;
+	font-size: 50px;
+	margin: 0px;
+}
+
+
+input[type=text], .ip{
+	border-radius:100px;
+	border:1px solid grey;
+	background-color:white;
+	padding:10px 10px;
+	text-align:center;
+	width: 250px
+}
+
+input[type=submit] {
+	border-radius:100px;
+	border:0;
+	background-color:white;
+	padding:10px 10px;
+	background-color:red;
+	color:white;
+	cursor: pointer;
+	margin-top: 20px
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="center"> 
+
+<h1>Risk Calculator</h1>
+<form action="/calculator" method="POST">
+	<input type="text" name="minhistory" placeholder="Enter Minhistory"/>
+	<input type="text" name="shots" placeholder="Enter Shots"/>
+	<input type="text" name="runs" placeholder="Enter runs"/>
+	<label for="options">Signal</label>
+		<select class="ip" name="option" id="option">
+		<option value="1">Buy</option>
+		<option value="0">Sell</option>
+		</select>
+	<input type="submit" value="submit" />
+</form>
+
+
+<table>
+<thead>
+<tr>
+	<th>Service</th>
+	<th>minHistory</th>
+	<th>Shots</th>
+	<th>Resource Count</th>
+	<th>Type</th>
+	<th>Mean of 95% Risk Value</th>
+	<th>Mean of 99% Risk Value</th>
+	<th>Runtime</th>
+</tr>
+</thead>
+<tboady>
+
+{% for i in note %}
+	<tr>
+	{% for j in i %}
+		<td>
+		{{ j }}
+		</td>
+	{% endfor %}
+	</tr>
+{% endfor %}
+
+</tboady>	
+</table>
+
+<form action="/charts" methods="post">
+	<input type="submit" value="Visualise" />
+</form>
+
+
+</div>
+
+</body>
+</html>
+

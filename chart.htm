@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Visualisation</title>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	</script>
+	
+	<style>
+	button{
+		border-radius:100px;
+		border:0;
+		background-color:white;
+		padding:10px 10px;
+		background-color:red;
+		color:white;
+		cursor: pointer;
+		margin-top: 20px;
+		margin:0 0 10px 45%;
+	}
+
+	a{
+		color:white;
+		border:0;
+	}
+	</style>
+</head>
+<body>
+	
+	<button><a href="./calculator.htm">Calculate</a></button>
+	<canvas id="myChart" style="width:100%;max-width:1500px"></canvas>
+	<script>
+		
+		
+		var ctx = document.getElementById("myChart").getContext("2d");
+		let lol = {{ var95_lst }}
+		console.log(lol)
+		var lineChart = new Chart(ctx,{
+			type: "line",
+			data: {
+				labels: {{ var95_ln | safe }},
+				datasets: [{
+					label: "Var95 data",
+					data: {{ var95_lst | safe }},
+					backgroundColor: ['red'],
+					borderColor: ['red'],
+					borderWidth: 1,
+					},
+					{
+					label: "Var99 data",
+					data: {{ var99_lst | safe }},
+					backgroundColor: ['blue'],
+					borderColor: ['blue'],
+					borderWidth: 1,
+					},
+					{
+					label: "Var95_average",
+					data: {{ var95_avg | safe }},
+					backgroundColor: ['black'],
+					borderColor: ['black'],
+					borderWidth: 1,
+					borderDash: [5, 10],
+					},
+					{
+					label: "Var99_average",
+					data: {{ var99_avg | safe }},
+					backgroundColor: ['green'],
+					borderColor: ['green'],
+					borderWidth: 1,
+					borderDash: [5, 10],
+					}]
+					
+				},
+				
+		
+		
+			options: {
+				responsponsive: true
+			}
+
+		});
+	</script>
+
+
+</body>
+</html>
+
+
+

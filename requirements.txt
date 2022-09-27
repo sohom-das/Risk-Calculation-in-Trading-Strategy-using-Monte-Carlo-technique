@@ -1,0 +1,8 @@
+pandas
+yfinance
+pandas_datareader
+gunicorn
+itsdangerous
+numpy
+flask
+python-http-client

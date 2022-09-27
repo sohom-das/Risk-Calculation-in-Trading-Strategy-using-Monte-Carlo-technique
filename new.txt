@@ -1,0 +1,4 @@
+let var95_lst = {{ var95_lst | safe }}
+		let var95_ln = {{ var95_ln | safe }}
+		let var99_lst = {{ var99_lst | safe }}
+		let var99_ln = {{ var99_ln | safe }}
